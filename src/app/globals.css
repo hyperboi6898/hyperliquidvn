@@ -1,97 +1,79 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+  :root {
+    /* Light theme (optional, if you want to support it) */
+    --background: 0 0% 100%; /* White */
+    --foreground: 222 84% 5%; /* Dark Blue/Black text for light theme */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    
+    --primary: 145 63% 49%; /* Green from our 'success' */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    
+    --secondary: 215 28% 95%; /* Light gray */
+    --secondary-foreground: 222 47% 11%; /* Dark text */
+    
+    --muted: 215 28% 95%;
+    --muted-foreground: 215 20% 45%; /* Softer dark text */
+    
+    --accent: 190 95% 43%; /* Cyan */
+    --accent-foreground: 222 84% 5%; /* Dark text on accent */
+    
+    --destructive: 0 72% 51%; /* Red from our 'danger' */
+    --destructive-foreground: 0 0% 100%; /* White text */
+    
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 190 95% 43%; /* Cyan for focus */
+    
+    --radius: 0.5rem;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
+  .dark {
+    /* Our dark theme colors */
+    --background: 222 47% 11%;    /* #0D1117 (tương ứng với 'bg' của chúng ta) */
+    --foreground: 208 25% 82%;    /* #C9D1D9 (tương ứng với 'text') */
+    
+    --card: 216 34% 17%;          /* #161B22 (tương ứng với 'surface') */
+    --card-foreground: 208 25% 82%; 
+    
+    --popover: 216 34% 17%;
+    --popover-foreground: 208 25% 82%;
+    
+    --primary: 145 63% 49%;       /* #2ECC71 (tương ứng với 'success', dùng làm primary) */
+    --primary-foreground: 222 47% 11%; /* #0D1117 (màu 'bg' cho chữ trên nút primary) */
+    
+    --secondary: 216 34% 22%;     /* Màu phụ, hơi sáng hơn 'surface' */
+    --secondary-foreground: 208 25% 82%;
+    
+    --muted: 216 34% 15%;         /* Nền tối hơn cho các thành phần muted */
+    --muted-foreground: 210 9% 58%; /* #8B949E (chữ 'muted' của chúng ta) */
+    
+    --accent: 190 95% 43%;        /* Cyan (#06B6D4) */
+    --accent-foreground: 222 47% 11%; /* Chữ tối trên nền accent cyan */
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 197 77% 15%;
-  --card: 0 0% 100%;
-  --card-foreground: 197 77% 15%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 197 77% 15%;
-  --primary: 190 95% 43%;
-  --primary-foreground: 185 100% 96%;
-  --secondary: 191 90% 37%;
-  --secondary-foreground: 185 100% 96%;
-  --muted: 185 92% 90%;
-  --muted-foreground: 195 68% 27%;
-  --accent: 189 85% 53%;
-  --accent-foreground: 197 77% 15%;
-  --destructive: 0 84% 60%;
-  --border: 187 93% 82%;
-  --input: 187 93% 82%;
-  --ring: 190 95% 43%;
-  --radius: 0.5rem; /* Default shadcn/ui radius */
-}
-
-.dark {
-  --background: 197 77% 15%;
-  --foreground: 185 100% 96%;
-  --card: 196 63% 24%;
-  --card-foreground: 185 100% 96%;
-  --popover: 196 63% 24%;
-  --popover-foreground: 185 100% 96%;
-  --primary: 190 95% 43%;
-  --primary-foreground: 197 77% 15%;
-  --secondary: 191 90% 37%;
-  --secondary-foreground: 185 100% 96%;
-  --muted: 195 68% 27%;
-  --muted-foreground: 187 93% 82%;
-  --accent: 189 85% 53%;
-  --accent-foreground: 197 77% 15%;
-  --destructive: 0 72% 51%;
-  --border: 195 68% 27%;
-  --input: 195 68% 27%;
-  --ring: 189 85% 53%;
-  /* --radius will inherit from :root */
+    --destructive: 6 78% 59%;     /* #E74C3C (tương ứng với 'danger') */
+    --destructive-foreground: 208 25% 82%;
+    
+    --border: 216 34% 25%;        /* Viền, hơi sáng hơn 'surface' */
+    --input: 216 34% 28%;         /* Viền cho input, có thể giống border */
+    --ring: 190 95% 43%;          /* Cyan cho hiệu ứng focus ring */
+    /* --radius: 0.5rem; không cần ghi đè nếu giống :root */
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background)); /* Sẽ sử dụng các biến CSS --background */
+    color: hsl(var(--foreground));          /* Sẽ sử dụng các biến CSS --foreground */
+    /* Các thiết lập font chữ đã có trong layout.tsx thông qua className của font */
   }
+
 }

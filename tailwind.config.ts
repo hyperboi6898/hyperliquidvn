@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,6 +17,14 @@ const config = {
     },
     extend: {
       colors: {
+        // Hyperliquid custom palette with prefix
+        'hl-bg':      '#041d1b',
+        'hl-surface': '#0f2126',
+        'hl-text':    '#e5f6f4',
+        'hl-success': '#00c7a2',
+        'hl-danger':  '#ff5c74',
+
+        // Shadcn/ui colors mapped to CSS variables
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,6 +58,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Cyan palette (can remain as is)
         cyan: {
           50: '#ecfeff',
           100: '#cffafe',
@@ -85,7 +94,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config
 
 export default config
