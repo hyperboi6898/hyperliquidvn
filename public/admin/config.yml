@@ -3,6 +3,7 @@ backend:
   repo: hyperboi6898/hyperliquidvn # Replace with your GitHub repo
   branch: main # Or your default branch
   site_domain: hyperliquidvietnam.xyz # Replace with your actual domain
+  base_url: https://sveltia-cms-auth.hyperboi6898.workers.dev
 
 media_folder: "public/uploads" # Where to store uploaded images
 public_folder: "/uploads" # The src attribute for uploaded assets
